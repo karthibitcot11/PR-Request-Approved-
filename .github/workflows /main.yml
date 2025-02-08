@@ -16,7 +16,7 @@ jobs:
       - name: Check if PR is Approved
         id: approval
         run: |
-          APPROVALS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          APPROVALS=$(curl -s -H "Authorization: token ${{ secrets.PASSWD }}" \
           "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews" \
           | jq '[.[] | select(.state=="APPROVED")] | length')
 
